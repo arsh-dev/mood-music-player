@@ -6,8 +6,9 @@ function App() {
     <>
       <div className="app-container">
         <MoodMusicPlayer />
+        <Footer />
       </div>
-      <Footer />
+      
     </>
   );
 }
