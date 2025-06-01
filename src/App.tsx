@@ -1,10 +1,14 @@
 import MoodMusicPlayer from "./components/MoodMusicPlayer";
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <MoodMusicPlayer />
-    </div>
+    <>
+      <div className="app-container">
+        <MoodMusicPlayer />
+      </div>
+      <Footer />
+    </>
   );
 }
 
