@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 
 const moodTracks: Record<string, string> = {
   happy: "/audio/happy.mp3",
@@ -10,12 +10,14 @@ const moodTracks: Record<string, string> = {
 export default function MoodMusicPlayer() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [currentMood, setCurrentMood] = useState<string | null>(null);
+  const [volume, setVolume] = useState<number>(0.5);
 
   const playMood = (mood: string) => {
     setCurrentMood(mood);
     if (audioRef.current) {
       audioRef.current.src = moodTracks[mood];
       audioRef.current.loop = true;
+      audioRef.current.volume = volume;
       audioRef.current.play();
     }
   };
@@ -27,34 +29,46 @@ export default function MoodMusicPlayer() {
     }
   };
 
+  const onVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const vol = Number(e.target.value);
+    setVolume(vol);
+    if (audioRef.current) {
+      audioRef.current.volume = vol;
+    }
+  };
+
   return (
-    <div className="p-4 space-y-4 max-w-md mx-auto text-center">
-      <h2 className="text-2xl font-bold">Select your mood</h2>
-      <div className="flex justify-around">
-        {Object.keys(moodTracks).map((mood) => (
-          <button
-            key={mood}
-            onClick={() => playMood(mood)}
-            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-          >
-            {mood.charAt(0).toUpperCase() + mood.slice(1)}
-          </button>
-        ))}
+    <div className="app-container">
+      <img src="/images/mood.jpg" alt="Mood Music Player" style={{width: "120px", marginBottom: "1rem"}} />
+      <h1>Mood Music Player 🎧</h1>
+      <div>
+        <button className="mood-button" onClick={() => playMood("happy")}>😊 Happy</button>
+        <button className="mood-button" onClick={() => playMood("sad")}>😢 Sad</button>
+        <button className="mood-button" onClick={() => playMood("focus")}>🧠 Focus</button>
+        <button className="mood-button" onClick={() => playMood("sleep")}>😴 Sleep</button>
       </div>
 
       {currentMood && (
-        <div>
-          <p className="mt-4 text-lg">Playing: {currentMood}</p>
-          <button
-            onClick={stopMusic}
-            className="mt-2 px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
-          >
-            Stop Music
-          </button>
-        </div>
+        <>
+          <p style={{ marginTop: "1rem" }}>Playing: {currentMood}</p>
+          <button className="stop-button" onClick={stopMusic}>Stop Music</button>
+
+          <div className="volume-control">
+            <label>Volume: </label>
+            <input
+              type="range"
+              min="0"
+              max="1"
+              step="0.01"
+              value={volume}
+              onChange={onVolumeChange}
+            />
+          </div>
+        </>
       )}
 
       <audio ref={audioRef} />
     </div>
   );
 }
+
