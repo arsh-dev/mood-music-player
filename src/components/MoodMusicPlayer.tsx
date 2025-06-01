@@ -38,7 +38,7 @@ export default function MoodMusicPlayer() {
   };
 
   return (
-    <div className="app-container">
+    <div>
       <img src="/images/mood.jpg" alt="Mood Music Player" style={{width: "120px", marginBottom: "1rem"}} />
       <h1>Mood Music Player 🎧</h1>
       <div>
