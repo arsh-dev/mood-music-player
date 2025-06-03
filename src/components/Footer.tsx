@@ -2,28 +2,58 @@
 
 export default function Footer() {
   return (
-    <footer style={{
-      marginTop: "2rem",
-      textAlign: "center",
-      fontSize: "0.9rem",
-      color: "#ddd"
-    }}>
-      Developed with ❤️ by Ayush Raj Sharma
+    <footer
+      style={{
+        marginTop: "2rem",
+        textAlign: "center",
+        fontSize: "0.9rem",
+        color: "#ddd",
+      }}
+    >
+      Check out my Music{" "}
+      <span role="img" aria-label="hand pointing right" style={{ margin: "0 6px" }}>
+        👉
+      </span>
       <a
-        href="https://github.com/arsh-dev"
+        href="https://www.youtube.com/@ashade_darker"
         target="_blank"
         rel="noopener noreferrer"
-        style={{ marginLeft: "8px", color: "white" }}
+        style={{ marginLeft: "4px", verticalAlign: "middle", display: "inline-block" }}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          fill="currentColor"
-          viewBox="0 0 24 24"
+          width="28"
+          height="28"
+          viewBox="0 0 48 48"
           style={{ verticalAlign: "middle" }}
         >
-          <path d="M12 .5C5.375.5 0 5.875 0 12.5c0 5.3 3.438 9.8 8.207 11.387.6.112.793-.262.793-.575 0-.287-.012-1.237-.012-2.25-3.338.737-4.042-1.613-4.042-1.613-.55-1.387-1.338-1.762-1.338-1.762-1.093-.75.087-.75.087-.75 1.206.087 1.838 1.25 1.838 1.25 1.075 1.838 2.812 1.312 3.5 1.012.106-.775.425-1.312.762-1.612-2.663-.3-5.463-1.337-5.463-5.95 0-1.312.469-2.387 1.237-3.225-.125-.3-.538-1.525.113-3.175 0 0 1.006-.325 3.3 1.237.95-.263 1.975-.394 3-.394s2.05.131 3 .394c2.294-1.562 3.3-1.237 3.3-1.237.65 1.65.237 2.875.113 3.175.769.838 1.237 1.913 1.237 3.225 0 4.625-2.806 5.644-5.475 5.937.438.375.819 1.112.819 2.25 0 1.612-.012 2.912-.012 3.312 0 .312.188.694.8.575C20.563 22.3 24 17.8 24 12.5 24 5.875 18.625.5 12 .5z" />
+          <rect width="48" height="48" rx="10" fill="#FF0000" />
+          <polygon points="19,16 19,32 33,24" fill="#fff" />
+        </svg>
+      </a>
+      {/* Instagram logo and link */}
+      <a
+        href="https://www.instagram.com/ashade_darker"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ marginLeft: "16px", verticalAlign: "middle", display: "inline-block" }}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="26"
+          height="26"
+          viewBox="0 0 448 512"
+          style={{ verticalAlign: "middle" }}
+        >
+          <linearGradient id="insta-gradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#f58529" />
+            <stop offset="50%" stopColor="#dd2a7b" />
+            <stop offset="100%" stopColor="#515bd4" />
+          </linearGradient>
+          <rect width="448" height="512" rx="90" fill="url(#insta-gradient)" />
+          <circle cx="224" cy="256" r="80" fill="#fff" />
+          <circle cx="224" cy="256" r="56" fill="url(#insta-gradient)" />
+          <circle cx="340" cy="132" r="20" fill="#fff" />
         </svg>
       </a>
     </footer>
